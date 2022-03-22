@@ -1,13 +1,22 @@
 library(NLRoot)
 
 func <- function(x) {
-  (exp(1))^x + x - 6
+  (x^3)-(3*x^2)+10*x+5#number 1 [-1,6]
+  #x^2+(x/x+1)-3#number 2 [-2,0] number 3 [0,2]
+  #x^5+(4*x^4)-(2*x^3)+(3*x^2)-x+6 #number 4 [-10,0]
+  #x^4-x^2 #number 5 [-2,0] number 6 [0,2]
 }
 
-curve(func, xlim=c(-3,3), col='blue', lwd=1.5, lty=2)
-abline(h=0)
-abline(v=0)
-uniroot(func,c(1,2))
+graphing <- function(someFunction,neg,pos){
+  curve(func, xlim=c(neg,pos), col='blue', lwd=1.5, lty=2)
+  abline(h=0)
+  abline(v=0)
+}
+
+graphing(func,-5,5)
+
+uniroot(func,c(-10,0))
+
 bisection <- function(f, a, b, n = 1000, tol = 1e-7) {
   # If the signs of the function at the evaluated points, a and b, stop the function and return message.
   if (!(f(a) < 0) && (f(b) > 0)) {
@@ -37,4 +46,4 @@ bisection <- function(f, a, b, n = 1000, tol = 1e-7) {
   print('Too many iterations')
 }
 
-bisection(func, 1, 2)
+bisection(func,-10,0)
