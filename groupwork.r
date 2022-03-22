@@ -8,7 +8,7 @@ func <- function(x) {
 }
 
 graphing <- function(someFunction,neg,pos){
-  curve(func, xlim=c(neg,pos), col='blue', lwd=1.5, lty=2)
+  curve(someFunction, xlim=c(neg,pos), col='blue', lwd=1.5, lty=2)
   abline(h=0)
   abline(v=0)
 }
