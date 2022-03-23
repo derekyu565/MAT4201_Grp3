@@ -8,9 +8,9 @@ func <- function(x){
   #(x^4/(x+1))-6#number 3
   #sin(((2*x)/3)+1)+x#number 4
   #cos(((2*x)/3)+1)+x#number 5
-  tan(((2*x)/3)+1)+x#number 6
+  #tan(((2*x)/3)+1)+x#number 6
   #exp(x)+x-6#number 7
-  #exp(x^2)-2*x-5#number 8
+  exp(x^2)-(2*x)-5#number 8
 }
 
 func1 <- function(x) {
@@ -19,9 +19,9 @@ func1 <- function(x) {
   #((6*x)+6)^(1/4)#number 3
   #-sin(((2*x)/3)+1)#number 4
   #-cos(((2*x)/3)+1)#number 5
-  -tan(((2*x)/3)+1)#number 6
+  #-tan(((2*x)/3)+1)#number 6
   #ln(6-x)#number 7
-  #number 8
+  sqrt(ln((2*x)+5))#number 8
 }
 
 graphing <- function(someFunction,neg,pos){
@@ -29,9 +29,9 @@ graphing <- function(someFunction,neg,pos){
   abline(h=0)
   abline(v=0)
 }
-graphing(func,-2.5,2.5)
+graphing(func,-2.5,0)
 
-uniroot(func,c(-3,3))
+uniroot(func,c(-3,0))
 fixedpoint2 <- function(fun, x0, tol=1e-07, niter=500){
   ## fixed-point algorithm to find x such that fun(x) == x
   ## assume that fun is a function of a single variable
@@ -48,6 +48,6 @@ fixedpoint2 <- function(fun, x0, tol=1e-07, niter=500){
   stop("exceeded allowed number of iterations")
 }
 
-fixedpoint(func1, -2.5, tol = 1e-6)
-fixedpoint2(func1,-1)
-func(fixedpoint2(func1,1))
+fixedpoint(func1,-2, tol = 1e-6)
+fixedpoint2(func1,-2)
+exp(2^2)
