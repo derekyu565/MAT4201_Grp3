@@ -1,11 +1,12 @@
 library(NLRoot)
 
 func <- function(x) {
-  (x^3)-(3*x^2)+10*x+5#number 1 [-1,6]
+  #(x^3)-(3*x^2)+10*x+5#number 1 [-1,6]
   #x^2+(x/x+1)-3#number 2 [-2,0] number 3 [0,2]
-  #x^5+(4*x^4)-(2*x^3)+(3*x^2)-x+6 #number 4 [-10,0]
+  x^5+(4*x^4)-(2*x^3)+(3*x^2)-x+6 #number 4 [-10,0]
   #x^4-x^2 #number 5 [-2,0] number 6 [0,2]
 }
+func(-4)
 
 graphing <- function(someFunction,neg,pos){
   curve(someFunction, xlim=c(neg,pos), col='blue', lwd=1.5, lty=2)
@@ -13,7 +14,8 @@ graphing <- function(someFunction,neg,pos){
   abline(v=0)
 }
 
-graphing(func,-5,5)
+
+graphing(func,-10,0)
 
 uniroot(func,c(-10,0))
 
@@ -27,7 +29,14 @@ bisection <- function(f, a, b, n = 1000, tol = 1e-7) {
   
   for (i in 1:n) {
     c <- (a + b) / 2 # Finding midpoint between intervals A and B
+    var <- (a+b)/2
+    print(paste("Iteration= ",i))
+    print(paste("Interval A= ",a))
+    print(paste("Interval B= ",b))
+    print(paste("Midpoint= ",var))
+    print(var)
     
+   
     # If the function equals 0 at the midpoint or the midpoint is below the desired tolerance, stop the 
     # function and return the root.
     if ((f(c) == 0) || ((b - a) / 2) < tol) {
@@ -40,10 +49,13 @@ bisection <- function(f, a, b, n = 1000, tol = 1e-7) {
     ifelse(sign(f(c)) == sign(f(a)), 
            a <- c,
            b <- c)
+    
   }
   # If the max number of iterations is reached and no root has been found, 
   # return message and end function.
   print('Too many iterations')
 }
 
-bisection(func,-10,0)
+bisection(func,-5,-4)
+
+

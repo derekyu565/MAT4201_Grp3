@@ -7,7 +7,8 @@ wrapper <- function(s){E("function(x){",s,"}")}
 
 
 #y=parse(text=expression(x^2-2))
-y=parse(text=expression(x^2-pi))
+y=parse(text=expression(x^7-500))
+#y=parse(text=expression(x^2-pi))
 #y=parse(text=expression(x^9-1000000))
 #y=parse(text=expression(x^6-900000))
 #y=parse(text=expression(x^5-25))
