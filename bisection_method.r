@@ -3,10 +3,22 @@ library(NLRoot)
 func <- function(x) {
   #(x^3)-(3*x^2)+10*x+5#number 1 [-1,6]
   #x^2+(x/x+1)-3#number 2 [-2,0] number 3 [0,2]
-  x^5+(4*x^4)-(2*x^3)+(3*x^2)-x+6 #number 4 [-10,0]
+  #x^5+(4*x^4)-(2*x^3)+(3*x^2)-x+6 #number 4 [-10,0]
   #x^4-x^2 #number 5 [-2,0] number 6 [0,2]
+  exp((2)*x) - (3/2)
+  #(x-2)*(x+1)
+  
 }
-func(-4)
+
+func(0)
+
+func(-2)
+func(-1)
+func(0)
+func(1)
+func(2)
+
+
 
 graphing <- function(someFunction,neg,pos){
   curve(someFunction, xlim=c(neg,pos), col='blue', lwd=1.5, lty=2)
@@ -15,9 +27,9 @@ graphing <- function(someFunction,neg,pos){
 }
 
 
-graphing(func,-10,0)
+graphing(func,-2,2)
 
-uniroot(func,c(-10,0))
+uniroot(func,c(-2,2))
 
 bisection <- function(f, a, b, n = 1000, tol = 1e-7) {
   # If the signs of the function at the evaluated points, a and b, stop the function and return message.
@@ -34,7 +46,7 @@ bisection <- function(f, a, b, n = 1000, tol = 1e-7) {
     print(paste("Interval A= ",a))
     print(paste("Interval B= ",b))
     print(paste("Midpoint= ",var))
-    print(var)
+    
     
    
     # If the function equals 0 at the midpoint or the midpoint is below the desired tolerance, stop the 
@@ -56,6 +68,6 @@ bisection <- function(f, a, b, n = 1000, tol = 1e-7) {
   print('Too many iterations')
 }
 
-bisection(func,-5,-4)
+bisection(func,-2,2)
 
 

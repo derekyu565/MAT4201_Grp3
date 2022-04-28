@@ -7,9 +7,9 @@ wrapper <- function(s){E("function(x){",s,"}")}
 
 
 #y=parse(text=expression(x^2-2))
-y=parse(text=expression(x^7-500))
+#y=parse(text=expression(x^7-500))
 #y=parse(text=expression(x^2-pi))
-#y=parse(text=expression(x^9-1000000))
+y=parse(text=expression(x^9-1000000))
 #y=parse(text=expression(x^6-900000))
 #y=parse(text=expression(x^5-25))
 #y=parse(text=expression(x^3-(3*x^2)+(10*x)+5))
@@ -29,7 +29,7 @@ graphing <- function(someFunction,neg,pos){
   abline(v=0)
 }
 
-graphing(fx,-12,12)
+graphing(fx,-6,6)
 uniroot(fx,c(-12,5))
 
 newtons_method <- function(x) {
@@ -39,8 +39,13 @@ newtons_method <- function(x) {
   ctr <- 1
   while(TRUE){
     x <- x - (fx(x) / dfx(x))
-    print(paste("Previous result= ",prev_result))
-    print(paste("x= ",x))
+    var1 <- fx(x)
+    var2 <- dfx(x)
+    print(paste("For x",ctr))
+    print(paste("Initial/Current Value= ",prev_result))
+    print(paste(prev_result,"-(",var1,"/",var2,")"))
+    print(paste("x",ctr,"=",x))
+    print(paste("---------------"))
     if (abs(x - prev_result) <=  threshold){
       break
     }
@@ -51,5 +56,5 @@ newtons_method <- function(x) {
   return(x)
 }
 
-fx(newtons_method(10000000000000))
+fx(newtons_method(5))
 
